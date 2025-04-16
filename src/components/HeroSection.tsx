@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -140,7 +139,7 @@ const HeroSection = () => {
               <img 
                 src="/lovable-uploads/75904980-b8dc-49c3-82aa-102cc396ae74.png" 
                 alt="Imran Khan Jihan" 
-                className="w-full h-full object-cover object-top"  // Added object-top to show more head/hair
+                className="w-full h-full object-cover"
               />
             </div>
             
@@ -222,4 +221,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
