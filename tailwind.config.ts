@@ -32,6 +32,11 @@ export default {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
+				teal: {
+					DEFAULT: '#008B8B',
+					light: '#20B2AA',
+					dark: '#006666',
+				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
