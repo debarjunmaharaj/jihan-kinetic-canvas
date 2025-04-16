@@ -138,7 +138,7 @@ const HeroSection = () => {
           >
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-teal-light overflow-hidden shadow-xl relative animate-float">
               <img 
-                src="/lovable-uploads/4e51df1a-995c-4c8b-ab4b-5b2435165250.png" 
+                src="/lovable-uploads/75904980-b8dc-49c3-82aa-102cc396ae74.png" 
                 alt="Imran Khan Jihan" 
                 className="w-full h-full object-cover"
               />
