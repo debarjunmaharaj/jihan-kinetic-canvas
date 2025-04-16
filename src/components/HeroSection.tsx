@@ -79,10 +79,9 @@ function SpinningTitle() {
 }
 
 const HeroSection = () => {
-  // Create canvas texture for the profile image
   const createProfileImageTexture = () => {
     const img = new Image();
-    img.src = '/lovable-uploads/4e51df1a-995c-4c8b-ab4b-5b2435165250.png'; // Use the uploaded image
+    img.src = '/lovable-uploads/4e51df1a-995c-4c8b-ab4b-5b2435165250.png';
     const canvas = document.createElement('canvas');
     canvas.width = 512;
     canvas.height = 512;
@@ -92,7 +91,6 @@ const HeroSection = () => {
       context.fillStyle = '#20B2AA';
       context.fillRect(0, 0, canvas.width, canvas.height);
       
-      // When the image loads, draw it on the canvas
       img.onload = () => {
         const size = Math.min(img.width, img.height);
         const offsetX = (img.width - size) / 2;
@@ -124,23 +122,25 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden pt-16 bg-gradient-to-b from-white to-gray-100">
-      <div className="absolute inset-0 bg-teal-50/50 z-10"></div>
+    <section 
+      id="hero" 
+      className="min-h-screen relative flex items-center justify-center overflow-hidden pt-20 md:pt-16"
+    >
+      <div className="absolute inset-0 bg-black/50 z-10"></div>
       
       <div className="container mx-auto px-4 z-20 relative">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          {/* Left Side: Profile Image and Info */}
           <motion.div
-            className="flex flex-col items-center md:items-end"
+            className="flex flex-col items-center md:items-end space-y-4"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-teal-light overflow-hidden shadow-xl relative animate-float">
+            <div className="w-56 h-56 md:w-80 md:h-80 rounded-full border-4 border-teal-light overflow-hidden shadow-xl relative animate-float">
               <img 
                 src="/lovable-uploads/75904980-b8dc-49c3-82aa-102cc396ae74.png" 
                 alt="Imran Khan Jihan" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"  // Added object-top to show more head/hair
               />
             </div>
             
@@ -156,7 +156,7 @@ const HeroSection = () => {
                   href={social.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white hover:bg-teal-600 transition-all duration-300 hover:scale-110 shadow-lg"
+                  className="w-10 h-10 rounded-full bg-teal-dark/80 flex items-center justify-center text-white hover:bg-teal-light transition-all duration-300 hover:scale-110"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -165,7 +165,6 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
           
-          {/* Right Side: 3D Text and Introduction */}
           <motion.div
             className="text-center md:text-left"
             initial={{ opacity: 0, x: 50 }}
@@ -184,16 +183,16 @@ const HeroSection = () => {
             </div>
             
             <motion.h2
-              className="text-xl md:text-2xl text-gray-800 mb-4"
+              className="text-xl md:text-2xl text-white mb-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <span className="text-teal-600 font-bold">Graphic Designer</span> | <span className="text-teal-600 font-bold">Web Designer</span>
+              <span className="text-teal-light font-bold">Graphic Designer</span> | <span className="text-teal-light font-bold">Web Designer</span>
             </motion.h2>
             
             <motion.p
-              className="text-gray-600 max-w-lg"
+              className="text-gray-300 max-w-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -210,7 +209,7 @@ const HeroSection = () => {
             >
               <a
                 href="#contact"
-                className="bg-teal-500 text-white px-6 py-3 rounded-full font-bold hover:bg-teal-600 transition-all duration-300 hover:scale-105 inline-block shadow-lg"
+                className="bg-teal-light text-white px-6 py-3 rounded-full font-bold hover:bg-teal-dark transition-all duration-300 hover:scale-105 inline-block"
               >
                 Contact Me
               </a>
@@ -223,3 +222,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
