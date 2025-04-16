@@ -2,7 +2,7 @@
 import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Text3D, Float, PerspectiveCamera } from '@react-three/drei';
+import { OrbitControls, Text3D, Float, PerspectiveCamera } from '@react-three/drei';
 import * as THREE from 'three';
 import { Facebook, Instagram, Linkedin, Youtube, Figma } from 'lucide-react';
 
@@ -28,7 +28,7 @@ function FloatingName() {
     <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
       <Text3D
         ref={textRef}
-        font="/fonts/helvetiker_regular.typeface.json"
+        font="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"
         size={0.5}
         height={0.1}
         curveSegments={4}
@@ -61,7 +61,7 @@ function SpinningTitle() {
   return (
     <group ref={groupRef} position={[0, -1.5, 0]}>
       <Text3D
-        font="/fonts/helvetiker_regular.typeface.json"
+        font="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"
         size={0.3}
         height={0.05}
         curveSegments={4}

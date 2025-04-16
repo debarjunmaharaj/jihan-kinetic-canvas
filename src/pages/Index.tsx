@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedBackground from '@/components/AnimatedBackground';
@@ -6,17 +5,31 @@ import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
 import { AboutSection, SkillsSection, EducationSection } from '@/components/MainSections';
 import { ContactSection, Footer } from '@/components/ContactAndFooter';
+import { preloadFont } from '@/utils/fontLoader';
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
 
-  // Simulate loading state for animations
+  // Simulate loading state for animations and preload font
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
+    const loadResources = async () => {
+      try {
+        // Try to preload the font
+        await preloadFont();
+        console.log('Font preloaded successfully');
+      } catch (err) {
+        console.error('Font preloading failed:', err);
+      }
+      
+      // Set loading to false after resources are loaded or after timeout
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+    };
+    
+    loadResources();
   }, []);
 
   // Loader animation
