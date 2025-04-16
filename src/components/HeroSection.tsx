@@ -81,7 +81,7 @@ function SpinningTitle() {
 const HeroSection = () => {
   const createProfileImageTexture = () => {
     const img = new Image();
-    img.src = '/lovable-uploads/4e51df1a-995c-4c8b-ab4b-5b2435165250.png';
+    img.src = 'blob:https://www.facebook.com/220ee856-a7e2-42ed-896b-0cf758d2b532';
     const canvas = document.createElement('canvas');
     canvas.width = 512;
     canvas.height = 512;
