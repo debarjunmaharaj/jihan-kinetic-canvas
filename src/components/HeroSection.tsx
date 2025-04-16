@@ -124,8 +124,8 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden pt-16">
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
+    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden pt-16 bg-gradient-to-b from-white to-gray-100">
+      <div className="absolute inset-0 bg-teal-50/50 z-10"></div>
       
       <div className="container mx-auto px-4 z-20 relative">
         <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -156,7 +156,7 @@ const HeroSection = () => {
                   href={social.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-10 h-10 rounded-full bg-teal-dark/80 flex items-center justify-center text-white hover:bg-teal-light transition-all duration-300 hover:scale-110"
+                  className="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white hover:bg-teal-600 transition-all duration-300 hover:scale-110 shadow-lg"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -184,16 +184,16 @@ const HeroSection = () => {
             </div>
             
             <motion.h2
-              className="text-xl md:text-2xl text-white mb-4"
+              className="text-xl md:text-2xl text-gray-800 mb-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <span className="text-teal-light font-bold">Graphic Designer</span> | <span className="text-teal-light font-bold">Web Designer</span>
+              <span className="text-teal-600 font-bold">Graphic Designer</span> | <span className="text-teal-600 font-bold">Web Designer</span>
             </motion.h2>
             
             <motion.p
-              className="text-gray-300 max-w-lg"
+              className="text-gray-600 max-w-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -210,7 +210,7 @@ const HeroSection = () => {
             >
               <a
                 href="#contact"
-                className="bg-teal-light text-white px-6 py-3 rounded-full font-bold hover:bg-teal-dark transition-all duration-300 hover:scale-105 inline-block"
+                className="bg-teal-500 text-white px-6 py-3 rounded-full font-bold hover:bg-teal-600 transition-all duration-300 hover:scale-105 inline-block shadow-lg"
               >
                 Contact Me
               </a>

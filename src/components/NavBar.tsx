@@ -34,7 +34,7 @@ const NavBar = () => {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 ${
         isScrolled 
-          ? 'bg-black/80 backdrop-blur-md shadow-lg' 
+          ? 'bg-white/90 backdrop-blur-md shadow-lg' 
           : 'bg-transparent'
       } transition-all duration-300`}
       initial={{ y: -100 }}
@@ -44,8 +44,8 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <a href="#hero" className="font-bold text-2xl text-white">
-              <span className="text-teal-light">IMRAN</span> KHAN
+            <a href="#hero" className="font-bold text-2xl text-gray-800">
+              <span className="text-teal-500">IMRAN</span> KHAN
             </a>
           </div>
           
@@ -56,7 +56,7 @@ const NavBar = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-300 hover:text-teal-light hover:scale-105 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300"
+                  className="text-gray-600 hover:text-teal-500 hover:scale-105 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300"
                 >
                   {item.name}
                 </a>
@@ -68,7 +68,7 @@ const NavBar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-400 hover:text-white focus:outline-none"
+              className="text-gray-600 hover:text-teal-500 focus:outline-none"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -79,7 +79,7 @@ const NavBar = () => {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div 
-          className="md:hidden glass-effect"
+          className="md:hidden bg-white shadow-lg"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
@@ -90,7 +90,7 @@ const NavBar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-teal-light block px-3 py-2 rounded-md text-base font-medium"
+                className="text-gray-600 hover:text-teal-500 block px-3 py-2 rounded-md text-base font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}

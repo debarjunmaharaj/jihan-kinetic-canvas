@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedBackground from '@/components/AnimatedBackground';
@@ -48,12 +49,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+    <div className="min-h-screen bg-white text-gray-800 overflow-hidden">
       <AnimatePresence>
         {loading ? (
           <motion.div 
             key="loader"
-            className="fixed inset-0 flex items-center justify-center bg-black z-50"
+            className="fixed inset-0 flex items-center justify-center bg-white z-50"
             variants={loaderVariants}
             initial="initial"
             animate="animate"
@@ -61,18 +62,18 @@ const Index = () => {
           >
             <div className="text-center">
               <motion.div
-                className="w-20 h-20 rounded-full border-4 border-teal-light border-t-transparent animate-spin mx-auto mb-6"
+                className="w-20 h-20 rounded-full border-4 border-teal-500 border-t-transparent animate-spin mx-auto mb-6"
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
               />
               <motion.h1 
-                className="text-3xl font-bold text-teal-light"
+                className="text-3xl font-bold text-teal-600"
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
               >
                 Imran Khan Jihan
               </motion.h1>
-              <p className="text-gray-400 mt-2">Portfolio Loading...</p>
+              <p className="text-gray-500 mt-2">Portfolio Loading...</p>
             </div>
           </motion.div>
         ) : (
@@ -142,7 +143,7 @@ const ScrollToTopButton = () => {
       {isVisible && (
         <motion.button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 p-3 rounded-full bg-teal-dark text-white shadow-lg z-50 hover:bg-teal-light transition-all duration-300"
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-teal-500 text-white shadow-lg z-50 hover:bg-teal-600 transition-all duration-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
