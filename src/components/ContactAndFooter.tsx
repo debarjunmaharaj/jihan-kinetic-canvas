@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Phone, Mail, Globe, Map, Facebook, Instagram, Linkedin, Youtube, ExternalLink } from 'lucide-react';
@@ -7,7 +6,7 @@ import { Phone, Mail, Globe, Map, Facebook, Instagram, Linkedin, Youtube, Extern
 export const ContactSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
-  
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -17,7 +16,7 @@ export const ContactSection = () => {
       },
     },
   };
-  
+
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -26,7 +25,7 @@ export const ContactSection = () => {
       transition: { duration: 0.6 },
     },
   };
-  
+
   const contactMethods = [
     {
       icon: <Phone className="h-8 w-8 text-teal-light" />,
@@ -65,14 +64,14 @@ export const ContactSection = () => {
       },
     },
   ];
-  
+
   return (
     <section id="contact" className="py-20 relative bg-black">
       <div className="absolute inset-0 overflow-hidden opacity-20">
         <div className="absolute h-96 w-96 bg-teal-light rounded-full blur-3xl -top-48 -left-48"></div>
         <div className="absolute h-96 w-96 bg-teal-dark rounded-full blur-3xl -bottom-48 -right-48"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           ref={ref}
@@ -81,14 +80,14 @@ export const ContactSection = () => {
           animate={isInView ? "visible" : "hidden"}
           className="max-w-4xl mx-auto"
         >
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
             className="text-3xl md:text-4xl font-bold text-center mb-12 text-white"
           >
             Contact <span className="text-teal-light">Me</span>
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             variants={itemVariants}
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
@@ -103,14 +102,14 @@ export const ContactSection = () => {
                     {contact.icon}
                     <h3 className="ml-3 text-xl font-bold text-white">{contact.title}</h3>
                   </div>
-                  
+
                   <div className="mb-6">
                     {contact.details.map((detail, i) => (
                       <p key={i} className="text-gray-300 mb-1">{detail}</p>
                     ))}
                   </div>
                 </div>
-                
+
                 <a
                   href={contact.action.url}
                   target="_blank"
@@ -123,18 +122,36 @@ export const ContactSection = () => {
               </motion.div>
             ))}
           </motion.div>
-          
+
           <motion.div
             variants={itemVariants}
             className="mt-16 glass-effect rounded-xl p-8 text-center"
           >
             <h3 className="text-xl font-bold text-white mb-6">Send Me a Message</h3>
-            
-            <form className="space-y-4">
+
+            {/* WhatsApp-integrated Form */}
+            <form
+              className="space-y-4"
+              onSubmit={(e) => {
+                e.preventDefault();
+
+                const name = (e.currentTarget.elements.namedItem("name") as HTMLInputElement).value;
+                const email = (e.currentTarget.elements.namedItem("email") as HTMLInputElement).value;
+                const subject = (e.currentTarget.elements.namedItem("subject") as HTMLInputElement).value;
+                const message = (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement).value;
+
+                const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+                const phoneNumber = "8801860333642"; // Country code without '+'
+                const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+                window.open(whatsappURL, "_blank");
+              }}
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <input
                     type="text"
+                    name="name"
                     placeholder="Your Name"
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-teal-light focus:outline-none"
                     required
@@ -143,30 +160,33 @@ export const ContactSection = () => {
                 <div>
                   <input
                     type="email"
+                    name="email"
                     placeholder="Your Email"
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-teal-light focus:outline-none"
                     required
                   />
                 </div>
               </div>
-              
+
               <div>
                 <input
                   type="text"
+                  name="subject"
                   placeholder="Subject"
                   className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-teal-light focus:outline-none"
                 />
               </div>
-              
+
               <div>
                 <textarea
+                  name="message"
                   placeholder="Your Message"
                   rows={5}
                   className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-teal-light focus:outline-none"
                   required
                 ></textarea>
               </div>
-              
+
               <div>
                 <button
                   type="submit"
@@ -192,7 +212,7 @@ export const Footer = () => {
     { icon: <Youtube size={18} />, url: 'https://www.youtube.com/@ikpresenttv' },
     { icon: <ExternalLink size={18} />, url: 'https://www.behance.net/imrankhanjihan' },
   ];
-  
+
   return (
     <footer className="py-8 bg-gray-900">
       <div className="container mx-auto px-4">
@@ -202,7 +222,7 @@ export const Footer = () => {
               &copy; {new Date().getFullYear()} Imran Khan Jihan. All rights reserved.
             </p>
           </div>
-          
+
           <div className="flex space-x-4 mb-4 md:mb-0">
             {socialLinks.map((social, index) => (
               <a
@@ -216,7 +236,7 @@ export const Footer = () => {
               </a>
             ))}
           </div>
-          
+
           <div className="text-gray-400">
             <p>Developed by <a href="https://www.facebook.com/Debarjunmaharaj" target="_blank" rel="noreferrer" className="text-teal-light hover:underline">Debarjun Chakraborty</a></p>
           </div>
